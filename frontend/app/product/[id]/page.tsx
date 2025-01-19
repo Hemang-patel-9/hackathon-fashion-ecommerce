@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Star, Heart, Share2, Check, AlertCircle, Facebook, Twitter, Plus, Minus, Linkedin } from "lucide-react";
@@ -10,7 +9,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import ImageSwapper from "@/components/image/page";
 import Cookies from "js-cookie";
 import { AddToCartModal, BuyNowButton } from "@/app/product/component/button-component";
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { products } from '@/lib/data';
 import RevenueChart from '@/app/product/component/price-chart';
 import { Compare } from '@/components/ui/compare';

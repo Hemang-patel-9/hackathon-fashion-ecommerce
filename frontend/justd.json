@@ -1,6 +1,6 @@
 {
-  "ui": "components/charts/ui",
-  "utils": "components/utils",
+  "ui": "components/ui",
+  "utils": "utils",
   "gray": "zinc",
   "css": "app/globals.css",
   "alias": "@",

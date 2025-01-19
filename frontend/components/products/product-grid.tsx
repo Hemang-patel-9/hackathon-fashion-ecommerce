@@ -44,7 +44,7 @@ const pageTransition = {
   }
 };
 
-export function ProductGrid() {
+function ProductGrid() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState("default");
   const [searchQuery, setSearchQuery] = useState("");
@@ -155,3 +155,5 @@ export function ProductGrid() {
     </motion.div>
   );
 }
+
+export default ProductGrid;

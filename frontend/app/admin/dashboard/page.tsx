@@ -1,7 +1,10 @@
+'use client';
+
 import React from 'react';
 import { ShoppingCart, Package, Box, Check } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import CategoryGrid from '@/app/admin/dashboard/components/catagorygrid';
 
 const DashboardStats = () => {
     const stats = [
@@ -21,6 +24,23 @@ const DashboardStats = () => {
             bgColor: 'bg-green-600',
         },
     ];
+
+    const product = [{
+        chartData: [
+            { month: 'Jan', allproductsale: 30299 },
+            { month: 'Feb', allproductsale: 29288 },
+            { month: 'Mar', allproductsale: 36805 },
+            { month: 'Apr', allproductsale: 36201 },
+            { month: 'May', allproductsale: 33738 },
+            { month: 'Jun', allproductsale: 31049 },
+            { month: 'Jul', allproductsale: 31570 },
+            { month: 'Aug', allproductsale: 36660 },
+            { month: 'Sep', allproductsale: 37550 },
+            { month: 'Oct', allproductsale: 33678 },
+            { month: 'Nov', allproductsale: 33764 },
+            { month: 'Dec', allproductsale: 29824 },
+        ],
+    }];
 
     const orderStats = [
         {
@@ -55,7 +75,6 @@ const DashboardStats = () => {
 
     return (
         <div className="p-6 space-y-6">
-            {/* Top Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {stats.map((stat, index) => (
                     <Card key={index} className={`${stat.bgColor} text-white`}>
@@ -67,7 +86,6 @@ const DashboardStats = () => {
                 ))}
             </div>
 
-            {/* Order Statistics */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 {orderStats.map((stat, index) => (
                     <Card key={index} className="border">
@@ -83,6 +101,24 @@ const DashboardStats = () => {
                     </Card>
                 ))}
             </div>
+
+            <div className="p-6 bg-white rounded-lg shadow-md">
+                <h3 className="text-lg font-semibold mb-4">Last Year Sales Overview (2023) </h3>
+                <ResponsiveContainer width="100%" height={400}>
+                    <LineChart
+                        data={product[0].chartData}
+                        margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="month" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        <Line type="monotone" dataKey="allproductsale" stroke="#8884d8" strokeWidth={2} />
+                    </LineChart>
+                </ResponsiveContainer>
+            </div>
+            <CategoryGrid />
         </div>
     );
 };

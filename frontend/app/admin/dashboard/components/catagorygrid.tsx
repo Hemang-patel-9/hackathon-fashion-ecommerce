@@ -6,32 +6,32 @@ import { ArrowRight } from 'lucide-react';
 const CategoryGrid = () => {
     // Extract all categories into a single array with their full paths
     const categories = [
-        { title: "Latest Collections", path: "/new-arrival/latest-collection" },
-        { title: "Lounge Wear", path: "/new-arrival/lounge-wear" },
-        { title: "Solid Wear Clothing", path: "/new-arrival/solid-wear-clothing" },
-        { title: "Plus Size Suits", path: "/new-arrival/plus-size" },
-        { title: "Indian Sarees", path: "/new-arrival/indian-sarees" },
-        { title: "Bedsheets", path: "/new-arrival/bedsheets" },
-        { title: "Traditional Suits", path: "/ethnic-wear/traditional-suits" },
-        { title: "Kurta Sets", path: "/ethnic-wear/kurta-sets" },
-        { title: "Indian Wear", path: "/ethnic-wear/indian" },
-        { title: "Western Wear", path: "/ethnic-wear/western" },
-        { title: "Festive Collection", path: "/ethnic-wear/festive" },
-        { title: "Traditional Sarees", path: "/ethnic-wear/traditional-sarees" },
-        { title: "Most Popular", path: "/bestsellers/popular" },
-        { title: "Trending Now", path: "/bestsellers/trending" },
-        { title: "Top Rated", path: "/bestsellers/top-rated" },
-        { title: "Customer Favorites", path: "/bestsellers/favorites" },
-        { title: "Premium Collection", path: "/bestsellers/premium" },
-        { title: "Cotton", path: "/fabrics/cotton" },
-        { title: "Silk", path: "/fabrics/silk" },
-        { title: "Chiffon", path: "/fabrics/chiffon" },
-        { title: "Georgette", path: "/fabrics/georgette" },
-        { title: "Premium Fabrics", path: "/fabrics/premium" },
-        { title: "Clearance Sale", path: "/sale/clearance" },
-        { title: "Season End", path: "/sale/season-end" },
-        { title: "Bundle Deals", path: "/sale/bundles" },
-        { title: "First Order Discount", path: "/sale/first-order" }
+        { title: "Latest Collections", path: "/admin/dashboard/category/latest-collection" },
+        { title: "Lounge Wear", path: "/admin/dashboard/category/lounge-wear" },
+        { title: "Solid Wear Clothing", path: "/admin/dashboard/category/solid-wear-clothing" },
+        { title: "Plus Size Suits", path: "/admin/dashboard/category/plus-size" },
+        { title: "Indian Sarees", path: "/admin/dashboard/category/indian-sarees" },
+        { title: "Bedsheets", path: "/admin/dashboard/category/bedsheets" },
+        { title: "Traditional Suits", path: "/admin/dashboard/category/traditional-suits" },
+        { title: "Kurta Sets", path: "/admin/dashboard/category/kurta-sets" },
+        { title: "Indian Wear", path: "/admin/dashboard/category/indian" },
+        { title: "Western Wear", path: "/admin/dashboard/category/western" },
+        { title: "Festive Collection", path: "/admin/dashboard/category/festive" },
+        { title: "Traditional Sarees", path: "/admin/dashboard/category/traditional-sarees" },
+        { title: "Most Popular", path: "/admin/dashboard/category/popular" },
+        { title: "Trending Now", path: "/admin/dashboard/category/trending" },
+        { title: "Top Rated", path: "/admin/dashboard/category/top-rated" },
+        { title: "Customer Favorites", path: "/admin/dashboard/category/favorites" },
+        { title: "Premium Collection", path: "/admin/dashboard/category/premium" },
+        { title: "Cotton", path: "/admin/dashboard/category/cotton" },
+        { title: "Silk", path: "/admin/dashboard/category/silk" },
+        { title: "Chiffon", path: "/admin/dashboard/category/chiffon" },
+        { title: "Georgette", path: "/admin/dashboard/category/georgette" },
+        { title: "Premium Fabrics", path: "/admin/dashboard/category/premium" },
+        { title: "Clearance Sale", path: "/admin/dashboard/category/clearance" },
+        { title: "Season End", path: "/admin/dashboard/category/season-end" },
+        { title: "Bundle Deals", path: "/admin/dashboard/category/bundles" },
+        { title: "First Order Discount", path: "/admin/dashboard/category/first-order" }
     ];
 
     return (
@@ -39,7 +39,11 @@ const CategoryGrid = () => {
             <h2 className="text-2xl font-bold mb-6">All Categories</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {categories.map((category, index) => (
-                    <Link href={category.path} key={index} className="transform transition-transform hover:scale-105">
+                    <Link
+                        href={category.path}
+                        key={index}
+                        className="transform transition-transform hover:scale-105"
+                    >
                         <Card className="hover:shadow-lg transition-shadow">
                             <CardContent className="p-4">
                                 <div className="flex items-center justify-between">

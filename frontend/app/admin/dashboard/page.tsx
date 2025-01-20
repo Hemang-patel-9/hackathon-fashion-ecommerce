@@ -27,18 +27,18 @@ const DashboardStats = () => {
 
     const product = [{
         chartData: [
-            { month: 'Jan', allproductsale: 30299 },
-            { month: 'Feb', allproductsale: 29288 },
-            { month: 'Mar', allproductsale: 36805 },
-            { month: 'Apr', allproductsale: 36201 },
-            { month: 'May', allproductsale: 33738 },
-            { month: 'Jun', allproductsale: 31049 },
-            { month: 'Jul', allproductsale: 31570 },
-            { month: 'Aug', allproductsale: 36660 },
-            { month: 'Sep', allproductsale: 37550 },
-            { month: 'Oct', allproductsale: 33678 },
-            { month: 'Nov', allproductsale: 33764 },
-            { month: 'Dec', allproductsale: 29824 },
+            { month: 'Jan',"Total Sales": 30299 },
+            { month: 'Feb',"Total Sales": 29288 },
+            { month: 'Mar',"Total Sales": 36805 },
+            { month: 'Apr',"Total Sales": 36201 },
+            { month: 'May',"Total Sales": 33738 },
+            { month: 'Jun',"Total Sales": 31049 },
+            { month: 'Jul',"Total Sales": 31570 },
+            { month: 'Aug',"Total Sales": 36660 },
+            { month: 'Sep',"Total Sales": 37550 },
+            { month: 'Oct',"Total Sales": 33678 },
+            { month: 'Nov',"Total Sales": 33764 },
+            { month: 'Dec',"Total Sales": 29824 },
         ],
     }];
 
@@ -114,7 +114,7 @@ const DashboardStats = () => {
                         <YAxis />
                         <Tooltip />
                         <Legend />
-                        <Line type="monotone" dataKey="allproductsale" stroke="#8884d8" strokeWidth={2} />
+                        <Line type="monotone" dataKey="Total Sales" stroke="#8884d8" strokeWidth={2} />
                     </LineChart>
                 </ResponsiveContainer>
             </div>

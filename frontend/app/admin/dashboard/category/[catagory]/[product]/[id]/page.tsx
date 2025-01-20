@@ -148,8 +148,9 @@ export default function ProductDetails({ params }: PageProps) {
                         {isEditing ? (
                             <Input
                                 type="number"
-                                value={editedProduct?.stock}
-                                onChange={(e) => setEditedProduct({ ...editedProduct, stock: parseInt(e.target.value) })}
+                                // @ts-ignore
+                                value={editedProduct?.inStock}
+                                onChange={(e) => setEditedProduct({ ...editedProduct, inStock: e.target.value === 'true' })}
                                 className="text-2xl font-bold"
                             />
                         ) : (

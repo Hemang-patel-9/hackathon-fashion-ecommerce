@@ -35,42 +35,42 @@ const staticImages: Photo[] = [
     imageUrl: '/corosal/corosal2.webp',
     title: 'Wedding Specials',
     source: 'New wedding collection in jaipuri styles',
-    link: '/collections/wedding'
+    link: '/new-arrival?category=indian-sarees'
   },
   {
     id: 'static3',
     imageUrl: '/corosal/corosal3.webp',
     title: 'Wedding Western',
     source: 'New wedding in jaipuri and western styles',
-    link: '/collections/western-wedding'
+    link: '/ethnic-wear?category=traditional-sarees'
   },
   {
     id: 'static4',
     imageUrl: '/corosal/corosal4.webp',
     title: 'Buy one get one free offer',
-    source: 'By Jaipuri Adda',
-    link: '/offers/bogo'
+    source: 'By Rajwadi Poshak',
+    link: '/bestsellers?category=favorites'
   },
   {
     id: 'static5',
     imageUrl: '/corosal/corosal5.webp',
     title: 'Western wedding dresses',
     source: 'New wedding in jaipuri and western styles',
-    link: 'ethnic-wear?category=traditional-sarees'
+    link: '/ethnic-wear?category=traditional-sarees'
   },
   {
     id: 'static6',
     imageUrl: '/corosal/corosal6.webp',
     title: 'Wedding Collections',
-    source: 'New Collections From Jaipuri adda',
-    link: '/collections/wedding'
+    source: 'New Collections From Rajwadi Poshak',
+    link: '/ethnic-wear?category=western'
   },
   {
     id: 'static7',
     imageUrl: '/corosal/corosal7.webp',
     title: 'Saree From Jaipuri Collection',
-    source: 'By Addaa',
-    link: '/collections/saree'
+    source: 'By Rajwadi Poshak',
+    link: '/ethnic-wear?category=western'
   },
 ];
 

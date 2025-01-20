@@ -1,3 +1,6 @@
+`localhost:3000/admin/dashboard`
+
+
 # Admin Panel for Fashion E-commerce
 
 ## Overview

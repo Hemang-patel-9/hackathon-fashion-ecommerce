@@ -135,7 +135,7 @@ export default function Login() {
 
 	return (
 		<div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-red-50 via-red-100 to-red-200">
-			<Toaster position="bottom-right" />
+			<Toaster position="top-right" />
 			<div className="absolute inset-0 -z-10">
 				<motion.div
 					animate={{

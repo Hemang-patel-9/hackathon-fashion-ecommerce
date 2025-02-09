@@ -55,7 +55,7 @@ export function HeroScrollDemo({ imageId, title, discription }: HeroScrollProps)
                 titleComponent={
                     <>
                         <h1 className="text-4xl font-semibold text-black dark:text-white">
-                            Our high sell product <br />
+                            Our high selling product <br />
                             <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
                                 Checkout Here
                             </span>

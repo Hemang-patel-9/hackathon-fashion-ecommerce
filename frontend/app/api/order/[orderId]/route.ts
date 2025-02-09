@@ -74,3 +74,36 @@ export async function PUT(req: Request,
 		return NextResponse.json({ success: false, error: 'Failed to update order' }, { status: 500 });
 	}
 }
+
+export async function GET(req: Request,
+	{ params }: { params: { orderId: string } }
+) {
+	const { orderId } = params;
+	try {
+		if (!orderId) {
+			return NextResponse.json({ success: false, error: 'Order ID is required' }, { status: 400 });
+		}
+
+		const [id, status] = orderId.split('-');
+
+		if (!id || !status) {
+			return NextResponse.json({ success: false, error: 'Invalid order ID format' }, { status: 400 });
+		}
+
+		await connectToDatabase();
+		const order = await Order.findById(id);
+
+		if (!order) {
+			return NextResponse.json({ success: false, error: 'Order not found' }, { status: 404 });
+		}
+
+		order.status = status;
+		await order.save();
+
+		return NextResponse.json({ success: true, data: order }, { status: 200 });
+
+	} catch (error) {
+		console.error('Error updating order status:', error);
+		return NextResponse.json({ success: false, error: 'Failed to update order status' }, { status: 500 });
+	}
+}

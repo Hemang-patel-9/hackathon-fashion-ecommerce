@@ -130,12 +130,6 @@ export default function TrackYourOrder() {
                     </div>
                 )}
             </div>
-
-            <footer className="bg-gray-100 py-6 mt-16">
-                <div className="text-center text-gray-500 text-sm">
-                    &copy; {new Date().getFullYear()} Jaipur Kurti. All rights reserved.
-                </div>
-            </footer>
         </div>
     );
 }

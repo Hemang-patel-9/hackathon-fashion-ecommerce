@@ -230,7 +230,7 @@ const ProductDetail = ({ products }: { products: Product[] }) => {
 					<ul className="list-disc pl-5">
 						{filteredProducts.slice(0, 5).map((product) => (
 							<li key={product.id} className="text-sm text-gray-600">
-								<Link href={`/admin/dashboard/category/${product.category}/${product.id}`}>{product.name} - ₹{product.price} - Rating: {product.rating}</Link>
+								<Link href={`/admin/dashboard/category/product/${product.category}/${product.id}`}>{product.name} - ₹{product.price} - Rating: {product.rating}</Link>
 							</li>
 						))}
 						{filteredProducts.length > 5 && (

@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { format } from 'date-fns'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -12,6 +11,17 @@ import { Package, Truck, CreditCard, Calendar, MapPin, AlertTriangle, ExternalLi
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 import Loader from '@/components/Loader'
+import { Button } from "@/components/ui/button"
+import {
+	AlertDialog,
+	AlertDialogAction,
+	AlertDialogCancel,
+	AlertDialogContent,
+	AlertDialogDescription,
+	AlertDialogFooter,
+	AlertDialogHeader,
+	AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
 
 interface Product {
 	id: {
@@ -55,6 +65,7 @@ export default function EnhancedOrdersPage() {
 	const router = useRouter()
 	const [loading, setIsLoading] = useState(true)
 	const [error, setError] = useState<string>("")
+	const [cancelOrderId, setCancelOrderId] = useState<string | null>(null)
 
 	const fetchAllOrders = async () => {
 		const userId = Cookies.get("userId")
@@ -91,8 +102,25 @@ export default function EnhancedOrdersPage() {
 		}
 	}
 
+	const handleCancelOrder = async (orderId: string) => {
+		try {
+			const response = await fetch(`/api/order/${orderId}-cancelled`, {
+				method: 'GET',
+			})
+			if (!response.ok) {
+				throw new Error('Failed to cancel order')
+			}
+			// Refresh orders after cancellation
+			await fetchAllOrders()
+		} catch (err) {
+			setError(err instanceof Error ? err.message : 'An error occurred while canceling the order')
+		} finally {
+			setCancelOrderId(null)
+		}
+	}
+
 	if (loading) {
-		return <div className="flex justify-center items-center h-screen"><Loader/></div>
+		return <div className="flex justify-center items-center h-screen"><Loader /></div>
 	}
 
 	if (error) {
@@ -130,6 +158,16 @@ export default function EnhancedOrdersPage() {
 											<Badge variant="destructive" className="animate-pulse">
 												Urgent
 											</Badge>
+										)}
+										{order.status.toLowerCase() === 'pending' && (
+											<Button
+												variant="destructive"
+												className='text-white bg-red-600 hover:text-red-600 hover:bg-white'
+												size="sm"
+												onClick={() => setCancelOrderId(order._id)}
+											>
+												Cancel Order
+											</Button>
 										)}
 									</div>
 								</CardTitle>
@@ -225,6 +263,22 @@ export default function EnhancedOrdersPage() {
 					You haven't placed any orders yet. Time to go shopping!
 				</motion.p>
 			)}
+			<AlertDialog open={!!cancelOrderId} onOpenChange={() => setCancelOrderId(null)}>
+				<AlertDialogContent className='bg-white'>
+					<AlertDialogHeader>
+						<AlertDialogTitle>Are you sure you want to cancel this order?</AlertDialogTitle>
+						<AlertDialogDescription>
+							This action cannot be undone. The order will be canceled and you may need to place a new order if you change your mind.
+						</AlertDialogDescription>
+					</AlertDialogHeader>
+					<AlertDialogFooter>
+						<AlertDialogCancel className='text-black hover:text-white'>No, keep my order</AlertDialogCancel>
+						<AlertDialogAction className='text-white' onClick={() => cancelOrderId && handleCancelOrder(cancelOrderId)}>
+							Yes, cancel the order
+						</AlertDialogAction>
+					</AlertDialogFooter>
+				</AlertDialogContent>
+			</AlertDialog>
 		</div>
 	)
 }

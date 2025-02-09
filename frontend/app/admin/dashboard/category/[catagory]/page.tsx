@@ -436,7 +436,7 @@ const AdminCategoryDashboard = () => {
                 </div>
 
                 {/* Low Stock Alert */}
-                {categoryProducts.some(p => p.stock < 10) && (
+                {/* {categoryProducts.some(p => p.inStock < 10) && (
                     <Alert variant="destructive" className="mt-8">
                         <AlertTriangle className="h-4 w-4" />
                         <AlertTitle>Low Stock Alert</AlertTitle>
@@ -445,7 +445,7 @@ const AdminCategoryDashboard = () => {
                             Please review and restock as needed.
                         </AlertDescription>
                     </Alert>
-                )}
+                )} */}
 
                 {/* Pagination */}
                 <div className="mt-8 flex justify-center">
